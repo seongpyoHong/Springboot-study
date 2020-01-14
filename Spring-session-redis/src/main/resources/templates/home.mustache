@@ -1,0 +1,18 @@
+{{>layout/header}}
+
+<h1>Spring Session Example</h1>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-6">
+            {{#userId}}
+                Logged in as: <span id="user">{{userId}}</span>
+            {{/userId}}
+            {{^userId}}
+                <a href="/login" class="btn btn-success active" role="button"> Login</a>
+            {{/userId}}
+        </div>
+    </div>
+    <br>
+</div>
+
+{{>layout/footer}}
