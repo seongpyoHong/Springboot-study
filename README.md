@@ -5,3 +5,5 @@ Repository for Springboot Study
 - Spring Session using Redis
 - JWT using Inteceptor
 
+- CORS
+

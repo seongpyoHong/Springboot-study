@@ -1,12 +1,26 @@
 package com.sphong.cors.demo.domain;
 
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+
+import javax.persistence.*;
 
 @Getter
-@RequiredArgsConstructor
+@NoArgsConstructor
+@Table(name = "USERS")
+@Entity
 public class User {
-    private final String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column (nullable = false, name = "name")
+    private String userName;
+
+    @Builder
+    public User (String userName) {
+        this.userName = userName;
+    }
 }

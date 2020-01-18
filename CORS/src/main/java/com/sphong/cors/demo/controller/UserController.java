@@ -1,17 +1,19 @@
 package com.sphong.cors.demo.controller;
 
 import com.sphong.cors.demo.domain.User;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.sphong.cors.demo.dto.UserResponseDto;
+import com.sphong.cors.demo.service.UserService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 
+@RequiredArgsConstructor
 @RestController
 public class UserController {
 
+    private final UserService userService;
     //@CrossOrigin
-    @GetMapping("/sphong")
-    public User getUser() {
-        User user = new User("sphong");
-        return user;
+    @GetMapping("/user/{name}")
+    public UserResponseDto getUser(@PathVariable("name") String name) {
+        return userService.findByName(name);
     }
 }
