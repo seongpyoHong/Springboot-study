@@ -11,9 +11,9 @@ import org.springframework.stereotype.Service;
 public class UserService {
     private final UserRepository userRepository;
 
-    public UserResponseDto findByName(String name) {
-        System.out.println(name);
-        User user = userRepository.findByUserName(name).orElseThrow(() -> new IllegalArgumentException("User Not Exist"));
-        return new UserResponseDto(user.getUserName());
+    public UserResponseDto findUserByMenu(String menu) {
+        System.out.println(menu);
+        User user = userRepository.findByMenu(menu).orElseThrow(() -> new IllegalArgumentException("User has test menu doesn't Exist"));
+        return new UserResponseDto(user.getUserName(),user.getLocation());
     }
 }

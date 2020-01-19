@@ -9,4 +9,5 @@ import lombok.RequiredArgsConstructor;
 public class UserResponseDto {
 
     private final String name;
+    private final String location;
 }

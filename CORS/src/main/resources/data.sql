@@ -1,1 +1,1 @@
-insert into USERS VALUES (NULL, 'sphong');
+insert into USERS VALUES (NULL,'Suwon','testMenu','sphong');

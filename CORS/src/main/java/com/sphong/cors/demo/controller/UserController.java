@@ -12,8 +12,9 @@ public class UserController {
 
     private final UserService userService;
     //@CrossOrigin
-    @GetMapping("/user/{name}")
-    public UserResponseDto getUser(@PathVariable("name") String name) {
-        return userService.findByName(name);
+    @GetMapping("/user/{menu}")
+    public UserResponseDto getUser(@PathVariable("menu") String menu) {
+        System.out.println("Reached in UserController");
+        return userService.findUserByMenu(menu);
     }
 }
