@@ -4,6 +4,7 @@ import com.sphong.resttemplate.demo.domain.Order;
 import com.sphong.resttemplate.demo.dto.UserDto;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -17,7 +18,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 @Service
 public class OrderService {
 
-    private final RestTemplate restTemplate;
+    private RestTemplate restTemplate;
+
     public OrderService(RestTemplateBuilder restTemplateBuilder) {
         this.restTemplate = restTemplateBuilder.build();
     }

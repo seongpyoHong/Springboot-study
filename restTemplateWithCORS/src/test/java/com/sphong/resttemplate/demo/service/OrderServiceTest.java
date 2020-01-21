@@ -43,8 +43,8 @@ class OrderServiceTest {
         UserDto response = orderService.getUserHasMenu(orderedMenu);
 
         //then
-        assertEquals(response.getUserName(),"sphong");
-        assertEquals(response.getLocation(),"Suwon");
+        assertEquals("sphong",response.getUserName());
+        assertEquals("Suwon", response.getLocation());
     }
 
 }
