@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -63,4 +64,14 @@ class AccountServiceTest {
     }
 
     //TODO: 로그인 테스트 추가하기
+    @Test
+    @WithMockUser(username = "test@gmail.com", roles = "USER")
+    public void 로그인() {
+        //given
+        accountRepository.save(Account.builder().email("test@gmail.com").password("password").build());
+        //when
+        UserDetails user = accountService.loadUserByUsername("test@gmail.com");
+        //then
+        assertEquals("test@gmail.com", user.getUsername());
+    }
 }
