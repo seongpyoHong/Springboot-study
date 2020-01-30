@@ -16,7 +16,7 @@ public class AccountController {
     AccountService accountService;
 
     @PostMapping("/login")
-    public UserDetails login(AccountRequestDto account) {
+    public UserDetails login(@RequestBody AccountRequestDto account) {
         return accountService.loadUserByUsername(account.getEmail());
     }
 }
